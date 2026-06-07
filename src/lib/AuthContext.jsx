@@ -4,6 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const STORAGE_KEY = 'lebouquiniste_user';
+  const basePath = import.meta.env.BASE_URL || '/';
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);
@@ -57,12 +58,12 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
     
     if (shouldRedirect) {
-      window.location.assign('/');
+      window.location.assign(basePath);
     }
   };
 
   const navigateToLogin = () => {
-    window.location.assign('/');
+    window.location.assign(basePath);
   };
 
   return (
