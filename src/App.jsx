@@ -43,11 +43,12 @@ const AuthenticatedApp = () => {
 
 
 function App() {
+  const basePath = import.meta.env.BASE_URL || '/';
 
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <Router basename={basePath}>
           <ScrollToTop />
           <AuthenticatedApp />
         </Router>

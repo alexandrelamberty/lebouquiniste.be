@@ -6,6 +6,22 @@ const HERO_IMG = "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa83
 export default function HeroSection() {
   const [offsetY, setOffsetY] = useState(0);
 
+  /**
+   * @param {import("react").MouseEvent<HTMLAnchorElement>} event
+   * @param {string} href
+   */
+  const handleHeroLinkClick = (event, href) => {
+    if (!href.startsWith("#")) return;
+
+    event.preventDefault();
+    const id = decodeURIComponent(href.slice(1));
+    const target = document.getElementById(id);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   useEffect(() => {
     const onScroll = () => setOffsetY(window.scrollY);
     window.addEventListener("scroll", onScroll);
@@ -51,12 +67,14 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <a
               href="#collection"
+              onClick={(event) => handleHeroLinkClick(event, "#collection")}
               className="inline-flex items-center justify-center px-8 py-3.5 border border-amber-300/40 bg-amber-200/10 backdrop-blur-sm text-amber-50 font-label text-[11px] uppercase tracking-[0.2em] hover:bg-amber-200/20 hover:border-amber-300/60 transition-all duration-500"
             >
               Visit the Bookshop
             </a>
             <a
               href="#contact"
+              onClick={(event) => handleHeroLinkClick(event, "#contact")}
               className="inline-flex items-center justify-center px-8 py-3.5 text-amber-200/70 font-label text-[11px] uppercase tracking-[0.2em] hover:text-amber-100 transition-colors duration-500"
             >
               Contact Us
