@@ -14,6 +14,18 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const brandClass = scrolled
+    ? "text-brass hover:text-accent"
+    : "text-amber-100 hover:text-amber-50";
+
+  const linkClass = scrolled
+    ? "text-foreground/70 hover:text-brass"
+    : "text-amber-100/90 hover:text-amber-50";
+
+  const mobileToggleClass = scrolled
+    ? "text-foreground/70 hover:text-brass"
+    : "text-amber-100/90 hover:text-amber-50";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
@@ -25,13 +37,13 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
           ? "bg-background/95 backdrop-blur-sm shadow-md border-b border-brass/20"
-          : "bg-transparent"
+          : "bg-gradient-to-b from-black/55 via-black/25 to-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
         <a
           href="#hero"
-          className="font-display text-xl lg:text-2xl tracking-wide text-brass transition-colors hover:text-accent"
+          className={`font-display text-xl lg:text-2xl tracking-wide transition-colors ${brandClass}`}
         >
           Le Bouquiniste
         </a>
@@ -42,7 +54,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-label text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-brass transition-colors duration-300"
+                className={`font-label text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${linkClass}`}
               >
                 {l.label}
               </a>
@@ -53,7 +65,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-foreground/70 hover:text-brass"
+          className={`md:hidden transition-colors ${mobileToggleClass}`}
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
