@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 93%;
+    --foreground: 25 14% 11%;
+    --card: 39 30% 90%;
+    --card-foreground: 25 14% 11%;
+    --popover: 40 33% 93%;
+    --popover-foreground: 25 14% 11%;
+    --primary: 24 32% 13%;
+    --primary-foreground: 40 33% 93%;
+    --secondary: 33 18% 30%;
+    --secondary-foreground: 40 33% 93%;
+    --muted: 36 20% 85%;
+    --muted-foreground: 25 10% 40%;
+    --accent: 33 26% 53%;
+    --accent-foreground: 40 33% 96%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 33 20% 78%;
+    --input: 33 20% 78%;
+    --ring: 33 26% 53%;
+    --chart-1: 25 60% 45%;
+    --chart-2: 33 50% 40%;
+    --chart-3: 20 40% 30%;
+    --chart-4: 40 55% 55%;
+    --chart-5: 15 65% 50%;
+    --radius: 0.25rem;
+    --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-mono: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    --sidebar-background: 36 20% 85%;
+    --sidebar-foreground: 25 14% 11%;
+    --sidebar-primary: 24 32% 13%;
+    --sidebar-primary-foreground: 40 33% 93%;
+    --sidebar-accent: 36 20% 80%;
+    --sidebar-accent-foreground: 24 32% 13%;
+    --sidebar-border: 33 20% 78%;
+    --sidebar-ring: 33 26% 53%;
+    --brass: 33 26% 53%;
+    --brass-foreground: 40 33% 96%;
+    --oak: 24 32% 13%;
+    --oak-foreground: 40 33% 93%;
+    --vellum: 40 33% 93%;
+    --vellum-dark: 36 20% 85%;
+    --inkwell: 25 14% 11%;
+  }
+
+  .dark {
+    --background: 25 14% 8%;
+    --foreground: 40 33% 93%;
+    --card: 25 14% 11%;
+    --card-foreground: 40 33% 93%;
+    --popover: 25 14% 11%;
+    --popover-foreground: 40 33% 93%;
+    --primary: 40 33% 93%;
+    --primary-foreground: 25 14% 11%;
+    --secondary: 33 18% 25%;
+    --secondary-foreground: 40 33% 93%;
+    --muted: 25 12% 18%;
+    --muted-foreground: 36 15% 60%;
+    --accent: 33 26% 53%;
+    --accent-foreground: 40 33% 96%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 12% 22%;
+    --input: 25 12% 22%;
+    --ring: 33 26% 53%;
+    --chart-1: 25 60% 50%;
+    --chart-2: 33 50% 45%;
+    --chart-3: 20 40% 35%;
+    --chart-4: 40 55% 60%;
+    --chart-5: 15 65% 55%;
+    --sidebar-background: 25 14% 8%;
+    --sidebar-foreground: 40 33% 93%;
+    --sidebar-primary: 40 33% 93%;
+    --sidebar-primary-foreground: 25 14% 11%;
+    --sidebar-accent: 25 12% 15%;
+    --sidebar-accent-foreground: 40 33% 93%;
+    --sidebar-border: 25 12% 22%;
+    --sidebar-ring: 33 26% 53%;
+    --brass: 33 26% 53%;
+    --brass-foreground: 40 33% 96%;
+    --oak: 40 33% 93%;
+    --oak-foreground: 25 14% 11%;
+    --vellum: 25 14% 8%;
+    --vellum-dark: 25 12% 12%;
+    --inkwell: 40 33% 93%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-brass {
+    color: hsl(var(--brass));
+  }
+  .bg-brass {
+    background-color: hsl(var(--brass));
+  }
+  .border-brass {
+    border-color: hsl(var(--brass));
+  }
+  .text-oak {
+    color: hsl(var(--oak));
+  }
+  .bg-oak {
+    background-color: hsl(var(--oak));
+  }
+  .bg-vellum {
+    background-color: hsl(var(--vellum));
+  }
+  .bg-vellum-dark {
+    background-color: hsl(var(--vellum-dark));
+  }
+  .text-inkwell {
+    color: hsl(var(--inkwell));
+  }
+}
