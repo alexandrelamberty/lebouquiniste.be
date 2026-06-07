@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+ 
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -13,6 +14,28 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  /**
+   * @param {import("react").MouseEvent<HTMLAnchorElement>} event
+   * @param {string} href
+   * @param {boolean} [shouldCloseMenu=false]
+   */
+  const handleNavClick = (event, href, shouldCloseMenu = false) => {
+    if (!href.startsWith("#")) {
+      if (shouldCloseMenu) setMenuOpen(false);
+      return;
+    }
+
+    event.preventDefault();
+
+    const id = decodeURIComponent(href.slice(1));
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    if (shouldCloseMenu) setMenuOpen(false);
+  };
 
   const brandClass = scrolled
     ? "text-brass hover:text-accent"
@@ -43,6 +66,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
         <a
           href="#hero"
+          onClick={(event) => handleNavClick(event, "#hero")}
           className={`font-display text-xl lg:text-2xl tracking-wide transition-colors ${brandClass}`}
         >
           Le Bouquiniste
@@ -54,6 +78,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
+                onClick={(event) => handleNavClick(event, l.href)}
                 className={`font-label text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${linkClass}`}
               >
                 {l.label}
@@ -86,7 +111,7 @@ export default function Navbar() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(event) => handleNavClick(event, l.href, true)}
                     className="font-label text-xs uppercase tracking-[0.2em] text-foreground/70 hover:text-brass transition-colors"
                   >
                     {l.label}
