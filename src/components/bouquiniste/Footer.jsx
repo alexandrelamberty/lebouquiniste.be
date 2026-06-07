@@ -21,6 +21,7 @@ export default function Footer() {
         </p>
 
         {/* Social links */}
+        {/*
         <div className="flex items-center justify-center gap-8 mb-8">
           {["Facebook", "Instagram", "Twitter"].map((name) => (
             <a
@@ -32,13 +33,25 @@ export default function Footer() {
             </a>
           ))}
         </div>
-
+        */}
+        
         {/* Divider */}
         <div className="h-[1px] w-20 mx-auto bg-brass/20 mb-6" />
 
         {/* Copyright */}
         <p className="font-label text-[10px] uppercase tracking-[0.15em] text-foreground/25">
           © {new Date().getFullYear()} Le Bouquiniste. All rights reserved.
+        </p>
+        <p className="font-label text-[10px] uppercase tracking-[0.15em] text-foreground/30 mt-3">
+          Created by {" "}
+          <a
+            href="https://eevos.be"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brass/70 hover:text-brass transition-colors"
+          >
+            eevos.be
+          </a>
         </p>
       </div>
     </footer>
