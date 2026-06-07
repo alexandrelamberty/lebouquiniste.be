@@ -5,7 +5,7 @@ const INFO_ITEMS = [
   {
     icon: MapPin,
     label: "Address",
-    value: "12 Rue des Vieux Chênes\n37500 Chinon, France",
+    value: "Rue des tilleuls 47\n1435 Mont-Saint-Guibert, Belgium",
   },
   {
     icon: Clock,
@@ -15,12 +15,12 @@ const INFO_ITEMS = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+33 2 47 93 00 00",
+    value: "+32 477 31 18 85",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@lebouquiniste.fr",
+    value: "contact@lebouquiniste.be",
   },
 ];
 
@@ -76,17 +76,26 @@ export default function InfoSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative overflow-hidden bg-vellum-dark border border-brass/15 min-h-[350px] flex items-center justify-center"
+          className="relative overflow-hidden bg-vellum-dark border border-brass/15 min-h-[350px]"
         >
-          <div className="text-center px-6">
-            <MapPin size={32} className="text-brass/40 mx-auto mb-4" strokeWidth={1} />
-            <p className="font-display text-xl text-oak/60 italic">
-              12 Rue des Vieux Chênes
-            </p>
-            <p className="font-body text-foreground/40 mt-2 text-sm">
-              Chinon, Loire Valley, France
-            </p>
-            <div className="mt-6 h-[1px] w-16 mx-auto bg-brass/20" />
+          <iframe
+            title="Le Bouquiniste location map"
+            src="https://maps.google.com/maps?q=Rue%20des%20tilleuls%2047%201435%20Mont-Saint-Guibert%20Belgium&z=15&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full min-h-[350px]"
+          />
+
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-5">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Rue+des+tilleuls+47,+1435+Mont-Saint-Guibert,+Belgium"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-oak/85 text-amber-100 text-xs font-label uppercase tracking-[0.16em] border border-brass/35 hover:bg-oak transition-colors"
+            >
+              <MapPin size={14} className="text-amber-200/80" strokeWidth={1.5} />
+              Open in Google Maps
+            </a>
           </div>
           {/* Decorative corners */}
           <div className="absolute top-3 left-3 w-8 h-8 border-t border-l border-brass/20" />
