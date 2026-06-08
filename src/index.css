@@ -106,6 +106,12 @@
     scroll-behavior: smooth;
   }
 
+  @media (min-width: 768px) {
+    html {
+      font-size: 125%;
+    }
+  }
+
   section[id] {
     scroll-margin-top: 5.5rem;
   }
