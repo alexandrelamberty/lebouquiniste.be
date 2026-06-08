@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const HERO_IMG = "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/02c8a32f0_generated_ca206a9b.png";
+const HERO_IMG = "/images/hero.png";
 
 export default function HeroSection() {
   const [offsetY, setOffsetY] = useState(0);

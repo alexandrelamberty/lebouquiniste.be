@@ -3,32 +3,32 @@ import { useState } from "react";
 
 const GALLERY_IMAGES = [
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/a6b84b9fc_generated_8311aad6.png",
+    src: "/images/gallery/a6b84b9fc_generated_8311aad6.png",
     alt: "Dark oak bookshelves floor to ceiling packed with antique books and brass reading lamp",
     span: "row-span-2",
   },
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/e28a7c82d_generated_07b003a6.png",
+    src: "/images/gallery/e28a7c82d_generated_07b003a6.png",
     alt: "Stack of antique books tied with twine, brass pocket watch, and dried rose petals",
     span: "",
   },
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/54cede44a_generated_900e9f37.png",
+    src: "/images/gallery/54cede44a_generated_900e9f37.png",
     alt: "Cozy reading corner with velvet armchair next to tall window with warm afternoon sunlight",
     span: "row-span-2",
   },
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/78be58f40_generated_a3f451d0.png",
+    src: "/images/gallery/78be58f40_generated_a3f451d0.png",
     alt: "Old book spines with ornate gold lettering on aged leather in dark oak bookshelf",
     span: "",
   },
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/2b10c92e2_generated_7c7e1ca8.png",
+    src: "/images/gallery/2b10c92e2_generated_7c7e1ca8.png",
     alt: "Ornate antique wooden furniture details with carved dark oak and brass handles",
     span: "",
   },
   {
-    src: "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/e500d3171_generated_2afd4f34.png",
+    src: "/images/gallery/e500d3171_generated_2afd4f34.png",
     alt: "Charming old stone countryside house bookshop exterior with climbing ivy and cobblestone path",
     span: "col-span-2",
   },
