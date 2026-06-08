@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
  
@@ -70,9 +69,24 @@ export default function Navbar() {
     : "font-label text-xs uppercase tracking-[0.2em] text-amber-50 hover:text-amber-100 transition-colors";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frame = 0;
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        const nextScrolled = window.scrollY > 60;
+        setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+        frame = 0;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -118,30 +132,23 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className={mobileMenuClass}
-          >
-            <ul className="flex flex-col items-center py-6 gap-5">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={(event) => handleNavClick(event, l.href, true)}
-                    className={mobileMenuLinkClass}
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {menuOpen && (
+        <div className={mobileMenuClass}>
+          <ul className="flex flex-col items-center py-6 gap-5">
+            {NAV_LINKS.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={(event) => handleNavClick(event, l.href, true)}
+                  className={mobileMenuLinkClass}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -24,14 +23,9 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-oak">
+      <Toaster />
       <div className="max-w-2xl mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-14"
-        >
+        <div className="text-center mb-14">
           <p className="font-label text-[10px] uppercase tracking-[0.3em] text-amber-400/50 mb-4">
             Get in Touch
           </p>
@@ -41,16 +35,9 @@ export default function ContactSection() {
           <p className="font-body text-amber-100/40 mt-4 italic text-lg">
             Leave your message as you would sign a guest book in a cherished home.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          onSubmit={handleSubmit}
-          className="space-y-8"
-        >
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* Name */}
           <div className="relative">
             <label className="font-label text-[10px] uppercase tracking-[0.2em] text-amber-300/50 block mb-2">
@@ -114,7 +101,7 @@ export default function ContactSection() {
               {sending ? "Sending..." : "Send Message"}
             </button>
           </div>
-        </motion.form>
+        </form>
       </div>
     </section>
   );

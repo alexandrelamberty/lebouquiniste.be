@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import CollectionCard from "./CollectionCard";
 
 const CATEGORIES = [
@@ -56,13 +55,7 @@ export default function CollectionSection() {
   return (
     <section id="collection" className="py-24 lg:py-32 bg-oak">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="font-label text-[10px] uppercase tracking-[0.3em] text-amber-400/60 mb-4">
             Browse by Category
           </p>
@@ -72,11 +65,11 @@ export default function CollectionSection() {
           <p className="font-body text-amber-100/50 mt-4 max-w-lg mx-auto text-lg italic">
             Thousands of volumes, lovingly curated across eight realms of knowledge.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-          {CATEGORIES.map((cat, i) => (
-            <CollectionCard key={cat.title} category={cat} index={i} />
+          {CATEGORIES.map((cat) => (
+            <CollectionCard key={cat.title} category={cat} />
           ))}
         </div>
       </div>

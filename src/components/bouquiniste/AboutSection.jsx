@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const ABOUT_IMG = "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/492aa25cd_generated_fba4a3c9.png";
 
 export default function AboutSection() {
@@ -7,13 +5,7 @@ export default function AboutSection() {
     <section id="about" className="py-24 lg:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="relative overflow-hidden shadow-2xl">
             <img
               src={ABOUT_IMG}
@@ -26,15 +18,10 @@ export default function AboutSection() {
           {/* Decorative brass frame corner */}
           <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-brass/40" />
           <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b border-r border-brass/40" />
-        </motion.div>
+        </div>
 
         {/* Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
-        >
+        <div>
           <p className="font-label text-[10px] uppercase tracking-[0.3em] text-brass mb-4">
             Our Story
           </p>
@@ -59,7 +46,7 @@ export default function AboutSection() {
               the whisper of turning pages.
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
