@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Le Bouquiniste social card</title>
+  <desc id="desc">Warm vintage bookstore themed share image.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5efe3"/>
+      <stop offset="100%" stop-color="#e9dcc7"/>
+    </linearGradient>
+    <linearGradient id="bookLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9a6a45"/>
+      <stop offset="100%" stop-color="#7a4f31"/>
+    </linearGradient>
+    <linearGradient id="bookRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b27d53"/>
+      <stop offset="100%" stop-color="#8d613f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.18" stroke="#6d4c33" stroke-width="1">
+    <line x1="0" y1="90" x2="1200" y2="90"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <g transform="translate(760,130)">
+    <rect x="0" y="0" width="320" height="370" rx="22" fill="#f9f4ea" stroke="#6b4b34" stroke-width="4"/>
+    <path d="M24 62c0-16 12-26 28-26h104c42 0 69 13 99 36v244c-30-23-57-36-99-36H52c-16 0-28-10-28-26V62z" fill="url(#bookLeft)"/>
+    <path d="M296 62c0-16-12-26-28-26H164c-42 0-69 13-99 36v244c30-23 57-36 99-36h104c16 0 28-10 28-26V62z" fill="url(#bookRight)"/>
+    <line x1="160" y1="70" x2="160" y2="318" stroke="#f3e6d5" stroke-width="3" opacity="0.9"/>
+    <path d="M194 24h52v106l-26-16-26 16V24z" fill="#2f4f4f"/>
+  </g>
+
+  <text x="100" y="235" fill="#3f2d21" font-size="76" font-family="Georgia, 'Times New Roman', serif" font-weight="700">
+    Le Bouquiniste
+  </text>
+  <text x="100" y="302" fill="#5a4131" font-size="40" font-family="Georgia, 'Times New Roman', serif">
+    Librairie d'ancien et d'occasion
+  </text>
+  <text x="100" y="368" fill="#6a4f3b" font-size="30" font-family="Georgia, 'Times New Roman', serif">
+    Livres rares • Atmosphere chaleureuse • Decouvertes litteraires
+  </text>
+
+  <rect x="100" y="420" width="470" height="4" fill="#8a664c" opacity="0.6"/>
+  <text x="100" y="475" fill="#4b3729" font-size="30" font-family="Georgia, 'Times New Roman', serif">
+    lebouquiniste.be
+  </text>
+</svg>
