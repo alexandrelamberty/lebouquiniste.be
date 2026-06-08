@@ -1,4 +1,4 @@
-const ABOUT_IMG = "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/492aa25cd_generated_fba4a3c9.png";
+const ABOUT_IMG = "/images/about.png";
 
 export default function AboutSection() {
   return (
