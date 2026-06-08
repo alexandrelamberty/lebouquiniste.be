@@ -1,9 +1,6 @@
 import UserNotRegisteredError from '@/components/UserNotRegistered';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
-import { queryClientInstance } from '@/lib/query-client';
-import { QueryClientProvider } from '@tanstack/react-query';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Toaster } from 'sonner';
 import ScrollToTop from './components/ScrollToTop';
 import PageNotFound from './lib/PageNotFound';
 import Home from './pages/home';
@@ -47,13 +44,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router basename={basePath}>
-          <ScrollToTop />
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
-      </QueryClientProvider>
+      <Router basename={basePath}>
+        <ScrollToTop />
+        <AuthenticatedApp />
+      </Router>
     </AuthProvider>
   )
 }

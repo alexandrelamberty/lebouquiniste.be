@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const HERO_IMG = "https://media.base44.com/images/public/6a25ced0e7e2ca5071faa834/02c8a32f0_generated_ca206a9b.png";
@@ -23,9 +22,23 @@ export default function HeroSection() {
   };
 
   useEffect(() => {
-    const onScroll = () => setOffsetY(window.scrollY);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frame = 0;
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        setOffsetY(window.scrollY);
+        frame = 0;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -47,11 +60,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
+        <div>
           <p className="font-label text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-amber-200/70 mb-6">
             Librairie d'ancien &amp; d'occasion
           </p>
@@ -80,16 +89,12 @@ export default function HeroSection() {
               Contact Us
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-        >
+        <div className="absolute bottom-8 animate-bounce">
           <div className="w-[1px] h-10 bg-gradient-to-b from-amber-200/60 to-transparent" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

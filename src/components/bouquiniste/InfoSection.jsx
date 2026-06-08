@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 const INFO_ITEMS = [
@@ -30,28 +29,19 @@ export default function InfoSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
         {/* Info cards */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <p className="font-label text-[10px] uppercase tracking-[0.3em] text-brass mb-4">
               Plan Your Visit
             </p>
             <h2 className="font-display text-4xl lg:text-5xl font-light text-oak leading-tight mb-10">
               Find Us
             </h2>
-          </motion.div>
+          </div>
 
           <div className="space-y-8">
             {INFO_ITEMS.map((item, i) => (
-              <motion.div
+              <div
                 key={item.label}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="flex items-start gap-5"
               >
                 <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-brass/25">
@@ -65,19 +55,13 @@ export default function InfoSection() {
                     {item.value}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Map placeholder */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative overflow-hidden bg-vellum-dark border border-brass/15 min-h-[350px]"
-        >
+        <div className="relative overflow-hidden bg-vellum-dark border border-brass/15 min-h-[350px]">
           <iframe
             title="Le Bouquiniste location map"
             src="https://maps.google.com/maps?q=Rue%20des%20tilleuls%2047%201435%20Mont-Saint-Guibert%20Belgium&z=15&output=embed"
@@ -102,7 +86,7 @@ export default function InfoSection() {
           <div className="absolute top-3 right-3 w-8 h-8 border-t border-r border-brass/20" />
           <div className="absolute bottom-3 left-3 w-8 h-8 border-b border-l border-brass/20" />
           <div className="absolute bottom-3 right-3 w-8 h-8 border-b border-r border-brass/20" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

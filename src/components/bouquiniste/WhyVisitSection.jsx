@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { BookOpen, Compass, Flame } from "lucide-react";
 
 const FEATURES = [
@@ -26,29 +25,19 @@ export default function WhyVisitSection() {
   return (
     <section id="visit" className="py-24 lg:py-32 bg-vellum-dark">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="font-label text-[10px] uppercase tracking-[0.3em] text-brass mb-4">
             The Experience
           </p>
           <h2 className="font-display text-4xl lg:text-5xl font-light text-oak leading-tight">
             Why Visit
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {FEATURES.map((f, i) => (
-            <motion.div
+          {FEATURES.map((f) => (
+            <div
               key={f.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, delay: i * 0.12 }}
               className="text-center group"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 border border-brass/30 mb-6 transition-all duration-500 group-hover:border-brass/60 group-hover:shadow-lg group-hover:shadow-amber-900/10">
@@ -64,7 +53,7 @@ export default function WhyVisitSection() {
               <p className="text-foreground/70 leading-[1.7] text-[1.02rem] max-w-xs mx-auto">
                 {f.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
